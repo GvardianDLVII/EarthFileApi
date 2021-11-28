@@ -40,13 +40,36 @@ namespace LevelMinimapGenerator
          }
 
          bitmap = new Bitmap(bitmap, new Size(bitmap.Width * options.Scale, bitmap.Height * options.Scale));
-         if(options.MarkStartingPositions)
+         if (options.MarkStartingPositions)
          {
             MarkPlayers(bitmap, misFile.Data.Players, options.Scale);
          }
+         MarkRadars(bitmap, misFile.Data.Objects, options.Scale);
          return bitmap;
       }
 
+      private static void MarkRadars(Bitmap bmp, IEnumerable<string> objects, int scale)
+      {
+         Graphics g = Graphics.FromImage(bmp);
+         g.SmoothingMode = SmoothingMode.AntiAlias;
+         g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+         g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+         StringFormat stringFormat = new StringFormat();
+         stringFormat.Alignment = StringAlignment.Center;
+         stringFormat.LineAlignment = StringAlignment.Center;
+
+         foreach (var radar in objects.Where(o => o.Contains("EDBRA")))
+         {
+            var coords = radar.Split(", ").Take(2).Select(s => int.Parse(s)).ToArray();
+            var rect = new Rectangle(coords[0] * scale - 10, coords[1] * scale - 10, 20, 20);
+            var pen = new Pen(Color.Black, 2);
+            g.DrawEllipse(pen, rect);
+            g.FillEllipse(Brushes.White, rect);
+            g.DrawString("R", new Font("Consolas", 8, FontStyle.Bold), Brushes.Black, rect, stringFormat);
+         }
+         g.Flush();
+      }
       private static void MarkPlayers(Bitmap bmp, PlayerData[] players, int scale)
       {
          Graphics g = Graphics.FromImage(bmp);
