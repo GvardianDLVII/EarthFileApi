@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SampleRunner": {
+      "commandName": "Project",
+      "commandLineArgs": "--o D:\\EarthDev\\MapThumbnails\\New\\sample.png --lnd \"D:\\SteamLibrary\\steamapps\\common\\Earth 2150 The Moon Project\\Levels\\3AIThe_Final_Judgementv9.lnd\" --mis \"D:\\SteamLibrary\\steamapps\\common\\Earth 2150 The Moon Project\\Levels\\3AIThe_Final_Judgementv9.mis\" --hidestartingpositions"
+    }
+  }
+}
