@@ -65,5 +65,12 @@ namespace Ieo.EarthFileApi.Files
          offset++;
          return result;
       }
+
+      protected static byte[] ReadBytes(byte[] bytes, int count, ref int offset)
+      {
+         var result = bytes.Skip(offset).Take(count).ToArray();
+         offset += count;
+         return result;
+      }
    }
 }

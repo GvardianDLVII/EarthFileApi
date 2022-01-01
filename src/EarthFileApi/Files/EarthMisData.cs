@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Ieo.EarthFileApi.Files
 {
@@ -16,7 +17,10 @@ namespace Ieo.EarthFileApi.Files
       /// Always 1?
       /// </summary>
       public int UnknownField { get; set; }
-      public PlayerData[] Players { get; set; } = Array.Empty<PlayerData>();
+      /// <summary>
+      /// List of players. It always contains 16 records
+      /// </summary>
+      public IReadOnlyList<PlayerData> Players { get; } = Enumerable.Range(0, 16).Select(_ => new PlayerData()).ToArray();
       /// <summary>
       /// Most likely a boolean
       /// </summary>

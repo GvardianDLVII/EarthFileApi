@@ -47,7 +47,7 @@ namespace LevelMinimapGenerator
          return bitmap;
       }
 
-      private static void MarkPlayers(Bitmap bmp, PlayerData[] players, int scale)
+      private static void MarkPlayers(Bitmap bmp, IReadOnlyList<PlayerData> players, int scale)
       {
          Graphics g = Graphics.FromImage(bmp);
          g.SmoothingMode = SmoothingMode.AntiAlias;
@@ -57,7 +57,7 @@ namespace LevelMinimapGenerator
          StringFormat stringFormat = new StringFormat();
          stringFormat.Alignment = StringAlignment.Center;
          stringFormat.LineAlignment = StringAlignment.Center;
-         for (int i = 0; i < players.Length; i++)
+         for (int i = 0; i < players.Count; i++)
          {
             if (players[i].UnknownField == 0) continue;
             var rect = new Rectangle(players[i].StartPositionX * scale - 10, players[i].StartPositionY * scale - 10, 20, 20);

@@ -14,7 +14,7 @@ namespace Ieo.EarthFileApi.Files
          data.MapHeight = ReadInt(bytes, ref offset);
          data.UnknownField = ReadInt(bytes, ref offset);
          data.LevelName = ReadString(bytes, ReadInt(bytes, ref offset), ref offset);
-         data.LevelInfo = ReadString(bytes, 16, ref offset);
+         data.LevelInfo = ReadBytes(bytes, 16, ref offset);
          var allSquares = Enumerable.Range(0, data.MapWidth * data.MapHeight);
          data.TerrainHeight = allSquares.Select(_ => ReadShort(bytes, ref offset)).ToArray();
          data.Tunnels = allSquares.Select(_ => ReadByte(bytes, ref offset)).ToArray();

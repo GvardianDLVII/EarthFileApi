@@ -14,7 +14,7 @@ namespace Ieo.EarthFileApi.Files
       /// <summary>
       /// Not fully recognised field. The last byte contains terrain type. First 15 seem to always be "ea ea ea ea 50 21 50 21 00 01 00 00 00 00 00"
       /// </summary>
-      public string LevelInfo { get; set; }
+      public byte[] LevelInfo { get; set; }
       public short[] TerrainHeight { get; set; } = Array.Empty<short>();
       public byte[] Tunnels { get; set; } = Array.Empty<byte>();
       public byte[] TerrainTextures { get; set; } = Array.Empty<byte>();

@@ -19,7 +19,13 @@ namespace Ieo.EarthFileApi.Files
          data.LevelWidth = ReadShort(bytes, ref offset);
          data.LevelHeight = ReadShort(bytes, ref offset);
          data.UnknownField = ReadInt(bytes, ref offset);
-         data.Players = Enumerable.Range(0, 16).Select(_ => ReadPlayer(bytes, ref offset)).ToArray();
+         for(int i = 0; i < 16; i++)
+         {
+            var player = ReadPlayer(bytes, ref offset);
+            data.Players[i].UnknownField = player.UnknownField;
+            data.Players[i].StartPositionX = player.StartPositionX;
+            data.Players[i].StartPositionY = player.StartPositionY;
+         }
          data.UnknownField2 = ReadShort(bytes, ref offset);
          var markersCount = ReadShort(bytes, ref offset);
          for(int i = 0; i < markersCount; i++)
