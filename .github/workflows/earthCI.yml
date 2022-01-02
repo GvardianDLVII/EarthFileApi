@@ -1,4 +1,4 @@
-name: .NET
+name: .NET CI/CD
 
 defaults:
   run:
@@ -27,3 +27,8 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Publish NuGet
+      uses: brandedoutcast/publish-nuget@v2.5.5
+      with:
+        PROJECT_FILE_PATH: EarthFileApi
+        NUGET_KEY: ${{ secrets.NUGET_KEY }}
