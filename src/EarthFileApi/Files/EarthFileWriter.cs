@@ -1,6 +1,5 @@
 ﻿using Elskom.Generic.Libs;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -23,7 +22,7 @@ namespace Ieo.EarthFileApi.Files
 
          return headerBytes.Concat(dataBytes).ToArray();
       }
-      private static byte[] WriteHeader(EarthHeader header)
+      internal static byte[] WriteHeader(EarthHeader header)
       {
          using (var stream = new MemoryStream())
          {
@@ -35,7 +34,7 @@ namespace Ieo.EarthFileApi.Files
             return stream.ToArray();
          }
       }
-      private static byte[] WriteLndData(EarthLndData data)
+      internal static byte[] WriteLndData(EarthLndData data)
       {
          using (var stream = new MemoryStream())
          {
@@ -44,8 +43,8 @@ namespace Ieo.EarthFileApi.Files
             stream.Write(BitConverter.GetBytes(data.UnknownField));
             stream.Write(BitConverter.GetBytes(data.LevelName.Length));
             stream.Write(Encoding.UTF8.GetBytes(data.LevelName));
-            //lndDataStream.Write(new byte[] { 0xEA, 0xEA, 0xEA, 0xEA, 0x50, 0x21, 0x50, 0x21, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00});
             stream.Write(data.LevelInfo);
+            stream.Write(new[] { (byte)data.TerrainType });
             stream.Write(data.TerrainHeight.SelectMany(s => BitConverter.GetBytes(s)).ToArray());
             stream.Write(data.Tunnels);
             stream.Write(data.TerrainTextures);
@@ -55,7 +54,7 @@ namespace Ieo.EarthFileApi.Files
             return stream.ToArray();
          }
       }
-      private static byte[] WriteMisData(EarthMisData data)
+      internal static byte[] WriteMisData(EarthMisData data)
       {
          using (var stream = new MemoryStream())
          {
