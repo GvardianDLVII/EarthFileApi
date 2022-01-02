@@ -5,13 +5,9 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EarthFileApi", "EarthFileApi\EarthFileApi.csproj", "{9C44D63C-5994-4883-A062-EB43779085B9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleRunner", "SampleRunner\SampleRunner.csproj", "{A1867B33-4E1E-4D3E-BF25-795FD59C158A}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LevelMinimapGenerator", "LevelMinimapGenerator\LevelMinimapGenerator.csproj", "{627626C6-8537-4CAB-9AD8-CF8514A20A51}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LevelSaveSample", "LevelSaveSample\LevelSaveSample.csproj", "{79ADE85F-D34A-4F97-8FA4-7FB39906FA67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EarthFileApi.Tests", "EarthFileApi.Tests\EarthFileApi.Tests.csproj", "{744C6FF7-3C16-43C5-A887-5B648E6BD696}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EarthFileApi.Tests", "EarthFileApi.Tests\EarthFileApi.Tests.csproj", "{744C6FF7-3C16-43C5-A887-5B648E6BD696}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,14 +19,6 @@ Global
 		{9C44D63C-5994-4883-A062-EB43779085B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C44D63C-5994-4883-A062-EB43779085B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C44D63C-5994-4883-A062-EB43779085B9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A1867B33-4E1E-4D3E-BF25-795FD59C158A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A1867B33-4E1E-4D3E-BF25-795FD59C158A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A1867B33-4E1E-4D3E-BF25-795FD59C158A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A1867B33-4E1E-4D3E-BF25-795FD59C158A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{627626C6-8537-4CAB-9AD8-CF8514A20A51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{627626C6-8537-4CAB-9AD8-CF8514A20A51}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{627626C6-8537-4CAB-9AD8-CF8514A20A51}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{627626C6-8537-4CAB-9AD8-CF8514A20A51}.Release|Any CPU.Build.0 = Release|Any CPU
 		{79ADE85F-D34A-4F97-8FA4-7FB39906FA67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{79ADE85F-D34A-4F97-8FA4-7FB39906FA67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79ADE85F-D34A-4F97-8FA4-7FB39906FA67}.Release|Any CPU.ActiveCfg = Release|Any CPU
