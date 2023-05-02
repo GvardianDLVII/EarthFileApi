@@ -1,4 +1,5 @@
 ﻿using Elskom.Generic.Libs;
+using Ieo.EarthFileApi.Files.Levels;
 using System;
 using System.IO;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace Ieo.EarthFileApi.Files
 {
-   public static class EarthFileWriter
+    public static class EarthFileWriter
    {
       public static byte[] WriteFile(EarthFile<EarthLndData> data)
       {
@@ -82,8 +83,8 @@ namespace Ieo.EarthFileApi.Files
             }
             foreach (var obj in data.Objects)
             {
-               stream.Write(BitConverter.GetBytes(obj.Length));
-               stream.Write(Encoding.UTF8.GetBytes(obj));
+               stream.Write(BitConverter.GetBytes(obj.String.Length));
+               stream.Write(Encoding.UTF8.GetBytes(obj.String));
             }
             stream.Write(BitConverter.GetBytes(0));
             return stream.ToArray();

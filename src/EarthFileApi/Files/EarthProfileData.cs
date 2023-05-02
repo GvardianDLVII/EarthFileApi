@@ -1,7 +1,6 @@
 ﻿namespace Ieo.EarthFileApi.Files
 {
-   public enum WaterType
+   public class EarthProfileData : IEarthData
    {
-      Water, Lava
    }
 }

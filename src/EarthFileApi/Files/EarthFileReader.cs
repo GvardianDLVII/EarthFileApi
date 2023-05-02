@@ -1,11 +1,12 @@
 ﻿using Ieo.EarthFileApi.Compression;
+using Ieo.EarthFileApi.Files.Levels;
 using System;
 using System.IO;
 using System.Linq;
 
 namespace Ieo.EarthFileApi.Files
 {
-   public static class EarthFileReader
+    public static class EarthFileReader
    {
       public static EarthFile<EarthLndData> ReadLndFile(byte[] data)
       {

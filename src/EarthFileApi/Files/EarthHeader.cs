@@ -2,7 +2,7 @@
 
 namespace Ieo.EarthFileApi.Files
 {
-   public class EarthHeader
+   public class EarthHeader : IEarthData
    {
       public int Header { get; set; }
       public string FileName { get; set; }
