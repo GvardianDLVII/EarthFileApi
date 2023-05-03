@@ -1,5 +1,6 @@
 ﻿using Ieo.EarthFileApi.Files;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace LevelSaveSample
 {
@@ -13,7 +14,12 @@ namespace LevelSaveSample
          }
          var profileFile = EarthFileReader.ReadProfileFile(args[0]);
 
-         File.WriteAllText("UserInfo.json", JsonSerializer.Serialize(profileFile));
+         JsonSerializerOptions options = new JsonSerializerOptions
+         {
+            Converters = { new JsonStringEnumConverter() }
+         };
+
+         File.WriteAllText("UserInfo.json", JsonSerializer.Serialize(profileFile, options));
       }
    }
 }
