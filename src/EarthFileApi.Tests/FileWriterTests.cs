@@ -77,11 +77,6 @@ namespace Ieo.EarthFileApi.Tests
          var rawData = File.ReadAllBytes(Path.Combine("Samples", profileName));
          var rawSections = EarthDecompressor.ReadSections(rawData);
          var profileData = EarthFileReader.ReadProfileFile(rawData);
-         var distinctField0x4 = profileData.EdTemplates.Select(t => t.Field_0x4).Concat(profileData.UcsTemplates.Select(t => t.Field_0x4)).Concat(profileData.LcTemplates.Select(t => t.Field_0x4)).Distinct().ToArray();
-         var distinctField0xc = profileData.EdTemplates.Select(t => t.Field_0xc).Concat(profileData.UcsTemplates.Select(t => t.Field_0xc)).Concat(profileData.LcTemplates.Select(t => t.Field_0xc)).Distinct().ToArray();
-         var distinctField0x10 = profileData.EdTemplates.Select(t => t.Field_0x10).Concat(profileData.UcsTemplates.Select(t => t.Field_0x10)).Concat(profileData.LcTemplates.Select(t => t.Field_0x10)).Distinct().ToArray();
-         var distinctField0x14 = profileData.EdTemplates.Select(t => t.Field_0x14).Concat(profileData.UcsTemplates.Select(t => t.Field_0x14)).Concat(profileData.LcTemplates.Select(t => t.Field_0x14)).Distinct().ToArray();
-         var distinctScripts = profileData.EdTemplates.Select(t => t.ScriptId).Concat(profileData.UcsTemplates.Select(t => t.ScriptId)).Concat(profileData.LcTemplates.Select(t => t.ScriptId)).Distinct().ToArray();
          var dataBytes = EarthFileWriter.WriteProfileData(profileData);
          dataBytes.Should().BeEquivalentTo(rawSections.Single());
          var processedRawData = EarthFileWriter.WriteFile(profileData);
