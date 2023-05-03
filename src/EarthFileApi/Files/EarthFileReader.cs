@@ -1,5 +1,6 @@
 ﻿using Ieo.EarthFileApi.Compression;
 using Ieo.EarthFileApi.Files.Levels;
+using Ieo.EarthFileApi.Files.Profiles;
 using System;
 using System.IO;
 using System.Linq;
@@ -33,6 +34,19 @@ namespace Ieo.EarthFileApi.Files
       public static EarthFile<EarthMisData> ReadMisFile(string filePath)
       {
          return ReadMisFile(File.ReadAllBytes(filePath));
+      }
+      public static ProfileData ReadProfileFile(byte[] data)
+      {
+         if (data == null)
+            throw new ArgumentNullException(nameof(data));
+         var sections = EarthDecompressor.ReadSections(data).ToArray();
+         if (sections.Length != 1)
+            throw new InvalidOperationException("Profile files should contain 1 zlib compressed section.");
+         return new EarthProfileDeserializer().Deserialize(sections.Single());
+      }
+      public static ProfileData ReadProfileFile(string filePath)
+      {
+         return ReadProfileFile(File.ReadAllBytes(filePath));
       }
    }
 }

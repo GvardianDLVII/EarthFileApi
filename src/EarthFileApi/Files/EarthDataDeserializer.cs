@@ -21,6 +21,13 @@ namespace Ieo.EarthFileApi.Files
          return result;
       }
 
+      protected static float ReadFloat(byte[] bytes, ref int offset)
+      {
+         var result = BitConverter.ToSingle(bytes, offset);
+         offset += 4;
+         return result;
+      }
+
       protected static short ReadShort(byte[] bytes, ref int offset)
       {
          var result = BitConverter.ToInt16(bytes, offset);
@@ -53,7 +60,7 @@ namespace Ieo.EarthFileApi.Files
          var length = ReadInt(bytes, ref offset);
          if (length == 0)
             return string.Empty;
-         var result = Encoding.Unicode.GetString(bytes, offset, length);
+         var result = Encoding.Unicode.GetString(bytes, offset, length*2);
          offset += length * 2;
          return result;
       }
