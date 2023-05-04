@@ -27,8 +27,8 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
-    - name: Publish NuGet
-      uses: brandedoutcast/publish-nuget@v2.5.5
-      with:
-        PROJECT_FILE_PATH: src/EarthFileApi/EarthFileApi.csproj
-        NUGET_KEY: ${{ secrets.NUGET_KEY }}
+    - name: Pack
+      run: dotnet pack src\\EarthFileApi\\EarthFileApi.csproj -c Release
+    - name: Publish to GitHub packages 
+      run: dotnet nuget push /home/runner/work/EarthFileApi/EarthFileApi/EarthFileApi/bin/Release/*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate`
+
