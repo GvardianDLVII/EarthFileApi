@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LevelSaveSample", "LevelSav
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EarthFileApi.Tests", "EarthFileApi.Tests\EarthFileApi.Tests.csproj", "{744C6FF7-3C16-43C5-A887-5B648E6BD696}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfileExportSample", "ProfileExportSample\ProfileExportSample.csproj", "{EC9367A1-C1DD-4108-BE27-9677C965E0CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileReaderSample", "FileReaderSample\FileReaderSample.csproj", "{EC9367A1-C1DD-4108-BE27-9677C965E0CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
