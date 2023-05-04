@@ -10,8 +10,7 @@ namespace Ieo.EarthFileApi.Files.Levels
             WriteInt(stream, value.MapHeight);
             WriteInt(stream, value.UnknownField);
             WriteString(stream, value.LevelName);
-            WriteBytes(stream, value.LevelInfo);
-            WriteByte(stream, (byte)value.TerrainType);
+            WriteGuid(stream, TerrainTypeMapper.ToGuid(value.TerrainType));
             foreach (var item in value.TerrainHeight) { WriteShort(stream, item); }
             WriteBytes(stream, value.Tunnels);
             WriteBytes(stream, value.TerrainTextures);
