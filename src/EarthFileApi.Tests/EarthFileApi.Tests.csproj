@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -59,8 +59,95 @@
     <None Update="Samples\Gvardian_LC_UserInfo.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Samples\Lnd\%28 2%29 1v1 Box v4 [Ani].lnd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Lnd\%28 2%29 Battle Box v3 [Ani].lnd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Lnd\%28 2%29 Budokai v2 [Ani].lnd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Lnd\%28 6%29 Hot Valley v9 [Ani].lnd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Lnd\%28 6%29 In The End v2 - S [Ani].lnd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Lnd\2_1v1_Naval_Box_v5_Konie.lnd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Lnd\3AIThe_Final_Judgementv9.lnd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Lnd\Arena_20230315183952.lnd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Lnd\[AI] - Mortal Hill - 3 Players [MC].lnd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Lnd\[AI] - Ultimate Bot Challenge - 3 Players v2.4 [MC].lnd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Lnd\[AI] - [TD] Map v2.0.lnd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Mis\%28 2%29 1v1 Box v4 [Ani].mis">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Mis\%28 2%29 Battle Box v3 [Ani].mis">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Mis\%28 2%29 Budokai v2 [Ani].mis">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Mis\%28 6%29 Hot Valley v9 [Ani].mis">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Mis\%28 6%29 In The End v2 - S [Ani].mis">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Mis\2_1v1_Naval_Box_v5_Konie.mis">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Mis\3AIThe_Final_Judgementv9.mis">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Mis\Arena_20230315183952.mis">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Mis\[AI] - Mortal Hill - 3 Players [MC].mis">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Mis\[AI] - Ultimate Bot Challenge - 3 Players v2.4 [MC].mis">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Mis\[AI] - [TD] Map v2.0.mis">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Samples\Noctis_UserInfo.dat">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Profiles\aaaaa_UserInfo.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Profiles\cleared_GvardianDLVII_UserInfo.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Profiles\Demo_UserInfo.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Profiles\Editor_UserInfo.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Profiles\Gvardian_ED_UserInfo.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Profiles\Gvardian_LC_UserInfo.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Profiles\test_UCS_UserInfo.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Samples\test_UCS_UserInfo.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
