@@ -9,15 +9,27 @@ namespace Ieo.EarthFileApi.Tests
 {
    public class FileWriterTests
    {
-      /*[Fact]
-      //For some reason it fails, even thought the data before compression is the same as decompressed bytes. Could be a difference in Zlib implementations used in Earth and in this library
-      public void LndFileTest()
+      //For wahtever reason, some of the tests fail, even though the data before compression is the same as decompressed bytes
+      //Could be some difference in Zlib implementations used in Earth and in this library
+      [Theory]
+      [InlineData("( 2) 1v1 Box v4 [Ani].lnd")]
+      [InlineData("( 2) Battle Box v3 [Ani].lnd")]
+      [InlineData("( 2) Budokai v2 [Ani].lnd")]
+      //[InlineData("( 6) Hot Valley v9 [Ani].lnd")]
+      //[InlineData("( 6) In The End v2 - S [Ani].lnd")]
+      [InlineData("[AI] - [TD] Map v2.0.lnd")]
+      [InlineData("[AI] - Mortal Hill - 3 Players [MC].lnd")]
+      //[InlineData("[AI] - Ultimate Bot Challenge - 3 Players v2.4 [MC].lnd")]
+      [InlineData("2_1v1_Naval_Box_v5_Konie.lnd")]
+      //[InlineData("3AIThe_Final_Judgementv9.lnd")]
+      [InlineData("Arena_20230315183952.lnd")]
+      public void LndFileTest(string lndFileName)
       {
-         var rawData = File.ReadAllBytes(Path.Combine("Samples", "3AIThe_Final_Judgementv9.lnd"));
+         var rawData = File.ReadAllBytes(Path.Combine("Samples/Lnd", lndFileName));
          var lndFile = EarthFileReader.ReadLndFile(rawData);
          var processedRawData = EarthFileWriter.WriteFile(lndFile);
          processedRawData.Should().BeEquivalentTo(rawData);
-      }*/
+      }
 
       [Theory]
       [InlineData("( 2) 1v1 Box v4 [Ani].lnd")]
