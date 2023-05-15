@@ -1,4 +1,5 @@
 ﻿using Ieo.EarthFileApi.Files;
+using Ieo.EarthFileApi.Files.Profiles;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -32,13 +33,18 @@ namespace FileReaderSample
          }
          else if (filePath.EndsWith(".lnd"))
          {
-            var profileFile = EarthFileReader.ReadLndFile(filePath);
-            File.WriteAllText($"{filePath}.json", JsonSerializer.Serialize(profileFile, options));
+            var lndFile = EarthFileReader.ReadLndFile(filePath);
+            File.WriteAllText($"{filePath}.json", JsonSerializer.Serialize(lndFile, options));
          }
          else if (filePath.EndsWith(".mis"))
          {
-            var profileFile = EarthFileReader.ReadMisFile(filePath);
-            File.WriteAllText($"{filePath}.json", JsonSerializer.Serialize(profileFile, options));
+            var misFile = EarthFileReader.ReadMisFile(filePath);
+            File.WriteAllText($"{filePath}.json", JsonSerializer.Serialize(misFile, options));
+         }
+         else if (filePath.EndsWith(".dat.json"))
+         {
+            var profileFile = JsonSerializer.Deserialize<ProfileData>(File.ReadAllText(filePath), options);
+            File.WriteAllBytes($"{filePath}.dat", EarthFileWriter.WriteFile(profileFile));
          }
          else
          {
