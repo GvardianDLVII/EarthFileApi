@@ -13,6 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Iced" Version="1.19.0" />
     <PackageReference Include="zlib.managed" Version="1.1.4" />
   </ItemGroup>
   <ItemGroup>

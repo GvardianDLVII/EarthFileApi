@@ -1,6 +1,7 @@
 ﻿using Ieo.EarthFileApi.Compression;
 using Ieo.EarthFileApi.Files.Levels;
 using Ieo.EarthFileApi.Files.Profiles;
+using Ieo.EarthFileApi.Files.Scripts;
 using System;
 using System.IO;
 using System.Linq;
@@ -47,6 +48,19 @@ namespace Ieo.EarthFileApi.Files
       public static ProfileData ReadProfileFile(string filePath)
       {
          return ReadProfileFile(File.ReadAllBytes(filePath));
+      }
+      public static EarthFile<EarthEcoMpData> ReadEcoMpFile(byte[] data)
+      {
+         if (data == null)
+            throw new ArgumentNullException(nameof(data));
+         var sections = EarthDecompressor.ReadSections(data).ToArray();
+         if (sections.Length != 2)
+            throw new InvalidOperationException("ecoMP files should contain 2 zlib compressed sections.");
+         return new EarthEcoMpFileFactory().Create(sections[0], sections[1]);
+      }
+      public static EarthFile<EarthEcoMpData> ReadEcoMpFile(string filePath)
+      {
+         return ReadEcoMpFile(File.ReadAllBytes(filePath));
       }
    }
 }

@@ -3,6 +3,7 @@
    public enum FileType
    {
       Lnd,
-      Mis
+      Mis,
+      Eco,
    }
 }

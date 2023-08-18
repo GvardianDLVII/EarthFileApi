@@ -1,5 +1,6 @@
 ﻿using Ieo.EarthFileApi.Files;
 using Ieo.EarthFileApi.Files.Profiles;
+using Ieo.EarthFileApi.Files.Scripts;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -40,6 +41,12 @@ namespace FileReaderSample
          {
             var misFile = EarthFileReader.ReadMisFile(filePath);
             File.WriteAllText($"{filePath}.json", JsonSerializer.Serialize(misFile, options));
+         }
+         else if (filePath.EndsWith(".ecoMP"))
+         {
+            var ecoMpFile = EarthFileReader.ReadEcoMpFile(filePath);
+            File.WriteAllText($"{filePath}.json", JsonSerializer.Serialize(ecoMpFile, options));
+            File.WriteAllText($"{filePath}.eil.json", JsonSerializer.Serialize(EilParser.Parse(ecoMpFile.Data), options));
          }
          else if (filePath.EndsWith(".dat.json"))
          {
