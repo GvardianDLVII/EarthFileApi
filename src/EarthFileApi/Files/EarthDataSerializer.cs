@@ -23,10 +23,12 @@ namespace Ieo.EarthFileApi.Files
          stream.Write(BitConverter.GetBytes(value));
       }
 
-      protected static void WriteString(MemoryStream stream, string value)
+      protected static void WriteString(MemoryStream stream, string value, Encoding encoding = null)
       {
          stream.Write(BitConverter.GetBytes(value.Length));
-         stream.Write(Encoding.UTF8.GetBytes(value));
+
+         encoding ??= Encoding.UTF8;
+         stream.Write(encoding.GetBytes(value));
       }
 
       protected static void WriteShortString(MemoryStream stream, string value)

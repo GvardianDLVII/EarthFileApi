@@ -1,6 +1,8 @@
 ﻿using Ieo.EarthFileApi.Files;
+using Ieo.EarthFileApi.Files.Language;
 using Ieo.EarthFileApi.Files.Profiles;
 using Ieo.EarthFileApi.Files.Scripts;
+using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -21,6 +23,9 @@ namespace FileReaderSample
             Console.WriteLine("File does not exist.");
             return;
          }
+
+         EncodingProvider provider = CodePagesEncodingProvider.Instance;
+         Encoding.RegisterProvider(provider);
 
          JsonSerializerOptions options = new JsonSerializerOptions
          {
@@ -48,10 +53,20 @@ namespace FileReaderSample
             File.WriteAllText($"{filePath}.json", JsonSerializer.Serialize(ecoMpFile, options));
             File.WriteAllText($"{filePath}.eil.json", JsonSerializer.Serialize(EilParser.Parse(ecoMpFile.Data), options));
          }
+         else if (filePath.EndsWith(".lan"))
+         {
+            var lanFile = EarthFileReader.ReadLanguageFile(filePath);
+            File.WriteAllText($"{filePath}.json", JsonSerializer.Serialize(lanFile, options));
+         }
          else if (filePath.EndsWith(".dat.json"))
          {
             var profileFile = JsonSerializer.Deserialize<ProfileData>(File.ReadAllText(filePath), options);
             File.WriteAllBytes($"{filePath}.dat", EarthFileWriter.WriteFile(profileFile));
+         }
+         else if (filePath.EndsWith(".lan.json"))
+         {
+            var languageFile = JsonSerializer.Deserialize<LanguageData>(File.ReadAllText(filePath), options);
+            File.WriteAllBytes($"{filePath}.lan", EarthFileWriter.WriteFile(languageFile));
          }
          else
          {

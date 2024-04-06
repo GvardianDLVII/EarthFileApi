@@ -3,6 +3,7 @@ using Ieo.EarthFileApi.Compression;
 using Ieo.EarthFileApi.Files;
 using System.IO;
 using System.Linq;
+using System.Text;
 using Xunit;
 
 namespace Ieo.EarthFileApi.Tests
@@ -153,6 +154,21 @@ namespace Ieo.EarthFileApi.Tests
          dataBytes.Should().BeEquivalentTo(rawSections.Single());
          var processedRawData = EarthFileWriter.WriteFile(profileData);
          processedRawData.Should().BeEquivalentTo(rawData);
+      }
+
+      [Theory]
+      [InlineData("Language_de_LS.lan")]
+      [InlineData("Language_en_TMP.lan")]
+      [InlineData("Language_pl_TMP.lan")]
+      [InlineData("Language_ru_LS.lan")]
+      public void LanguageDataTest(string lanName)
+      {
+         EncodingProvider provider = CodePagesEncodingProvider.Instance;
+         Encoding.RegisterProvider(provider);
+         var rawData = File.ReadAllBytes(Path.Combine("Samples/Language", lanName));
+         var lanData = EarthFileReader.ReadLanguageFile(rawData);
+         var dataBytes = EarthFileWriter.WriteFile(lanData);
+         dataBytes.Should().BeEquivalentTo(rawData);
       }
    }
 }

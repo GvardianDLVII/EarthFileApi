@@ -59,6 +59,18 @@
     <None Update="Samples\Gvardian_LC_UserInfo.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Samples\Language\Language_de_LS.lan">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Language\Language_en_TMP.lan">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Language\Language_pl_TMP.lan">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Language\Language_ru_LS.lan">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Samples\Lnd\%28 2%29 1v1 Box v4 [Ani].lnd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -35,12 +35,14 @@ namespace Ieo.EarthFileApi.Files
          return result;
       }
 
-      protected static string ReadString(byte[] bytes, ref int offset)
+      protected static string ReadString(byte[] bytes, ref int offset, Encoding encoding = null)
       {
          var length = ReadInt(bytes, ref offset);
          if (length == 0)
             return string.Empty;
-         var result = Encoding.UTF8.GetString(bytes, offset, length);
+
+         encoding ??= Encoding.UTF8;
+         var result = encoding.GetString(bytes, offset, length);
          offset += length;
          return result;
       }

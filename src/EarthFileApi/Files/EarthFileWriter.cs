@@ -1,4 +1,5 @@
 ﻿using Elskom.Generic.Libs;
+using Ieo.EarthFileApi.Files.Language;
 using Ieo.EarthFileApi.Files.Levels;
 using Ieo.EarthFileApi.Files.Profiles;
 using System.IO;
@@ -27,6 +28,12 @@ namespace Ieo.EarthFileApi.Files
          MemoryZlib.Compress(WriteProfileData(data), out var dataBytes, out _);
 
          return dataBytes;
+      }
+      public static byte[] WriteFile(LanguageData data)
+      {
+         using var stream = new MemoryStream();
+         new EarthLanguageSerializer().Serialize(stream, data);
+         return stream.ToArray();
       }
 
       internal static byte[] WriteHeader(EarthHeader header)

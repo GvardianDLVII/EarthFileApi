@@ -1,4 +1,5 @@
 ﻿using Ieo.EarthFileApi.Compression;
+using Ieo.EarthFileApi.Files.Language;
 using Ieo.EarthFileApi.Files.Levels;
 using Ieo.EarthFileApi.Files.Profiles;
 using Ieo.EarthFileApi.Files.Scripts;
@@ -61,6 +62,16 @@ namespace Ieo.EarthFileApi.Files
       public static EarthFile<EarthEcoMpData> ReadEcoMpFile(string filePath)
       {
          return ReadEcoMpFile(File.ReadAllBytes(filePath));
+      }
+      public static LanguageData ReadLanguageFile(byte[] data)
+      {
+         if (data == null)
+            throw new ArgumentNullException(nameof(data));
+         return new EarthLanguageDeserializer().Deserialize(data);
+      }
+      public static LanguageData ReadLanguageFile(string filePath)
+      {
+         return ReadLanguageFile(File.ReadAllBytes(filePath));
       }
    }
 }
