@@ -13,6 +13,8 @@ namespace Ieo.EarthFileApi.Files.Scripts
       public EarthStateEil[] States { get; set; }
       public EarthCommandEil[] Commands { get; set; }
       public EarthEventEil[] Events { get; set; }
+
+      public string FullDeassembly { get; set; }
    }
 
    public class EarthCommandEil
@@ -102,6 +104,7 @@ namespace Ieo.EarthFileApi.Files.Scripts
             eventEil.Deassembly = Deassemble(ecoMpData, eventEil.Code, eo);
             return eventEil;
          }).ToArray();
+         eilData.FullDeassembly = Deassemble(ecoMpData, ecoMpData.Code, 0);
 
          return eilData;
       }
