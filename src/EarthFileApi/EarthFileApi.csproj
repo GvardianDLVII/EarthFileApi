@@ -9,7 +9,7 @@
     <Company>InsideEarth Operations</Company>
     <Authors>GvardianDLVII</Authors>
     <Description>Earth file api. See repository page for sample usage and features.</Description>
-    <Version>0.2.0</Version>
+    <Version>0.3.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
